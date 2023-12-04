@@ -1,0 +1,23 @@
+{
+  "name": "CopyURL",
+  "description" : "Copy the URL and title of the active page.",
+  "permissions": [
+    "activeTab",
+    "clipboardWrite",
+    "offscreen"
+  ],
+  "version": "1.3",
+  "manifest_version": 3,
+  "icons": {
+    "128": "icon.png"
+  },
+  "action": {
+    "default_icon": {
+      "128": "icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}
