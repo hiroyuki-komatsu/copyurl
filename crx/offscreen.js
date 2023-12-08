@@ -2,7 +2,6 @@ let url = "";
 let title = "";
 
 window.addEventListener("copy", (event) => {
-  console.log("event listener");
   event.preventDefault();
   let html = "<a href='" + url + "'>" + title + "</a>";
   event.clipboardData.setData("text/html", html);
@@ -11,12 +10,9 @@ window.addEventListener("copy", (event) => {
 });
 
 chrome.runtime.onMessage.addListener(message => {
-  console.log("message: " + message);
   if (message.command != "copy") {
     return;
   }
-  console.log("url: " + message.url);
-  console.log("title: " + message.title);
 
   url = message.url;
   title = message.title;

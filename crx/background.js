@@ -1,4 +1,4 @@
-let creatDocumentPromise = null;
+let createDocumentPromise = null;
 
 async function setupOffscreenDocument(path) {
   const filter = {
@@ -10,18 +10,18 @@ async function setupOffscreenDocument(path) {
     return;
   }
 
-  if (creatDocumentPromise) {
-    await creatDocumentPromise;
+  if (createDocumentPromise) {
+    await createDocumentPromise;
     return;
   }
 
-  creatDocumentPromise = chrome.offscreen.createDocument({
+  createDocumentPromise = chrome.offscreen.createDocument({
     url: path,
     reasons: ["CLIPBOARD"],
     justification: "for clipboard",
   });
-  await creatDocumentPromise;
-  creatDocumentPromise = null;
+  await createDocumentPromise;
+  createDocumentPromise = null;
 }
 
 async function copyUrl(tab) {
